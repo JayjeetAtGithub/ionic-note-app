@@ -9,6 +9,7 @@ import firebase from 'firebase';
 })
 
 export class Page2 {
+  notes;
   user;
   constructor(public navCtrl: NavController ,public params : NavParams , private noteProvider : NoteProvider) {
         this.user = params.data.user;
@@ -25,7 +26,9 @@ export class Page2 {
   ngOnInit(){
     //console.log('on init');
     this.noteProvider.getNotes(1).subscribe((res) => {
-    console.log(res);
+        this.notes = res;
+        console.log(this.notes);
+
     })
   }
 }

@@ -7,6 +7,7 @@ import firebase from 'firebase';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { Page2 } from '../pages/page2/page2';
+import { Detail } from '../pages/detail/detail';
 import { NoteProvider } from '../providers/note/note';
 import { HttpClientModule } from '@angular/common/http';
 
