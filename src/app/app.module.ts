@@ -7,6 +7,8 @@ import firebase from 'firebase';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { Page2 } from '../pages/page2/page2';
+import { NoteProvider } from '../providers/note/note';
+import { HttpClientModule } from '@angular/common/http';
 
   // Initialize Firebase
 export const config = {
@@ -29,7 +31,8 @@ export const config = {
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,7 +43,8 @@ export const config = {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    NoteProvider,
   ]
 })
 export class AppModule {}

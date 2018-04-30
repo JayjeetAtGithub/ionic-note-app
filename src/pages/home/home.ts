@@ -13,6 +13,9 @@ export class HomePage {
 
   }
 
+   ngOnInit(){
+     console.log('Working');
+   }
 
   login(){
     //code to log the user in...
