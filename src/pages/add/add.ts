@@ -4,18 +4,17 @@ import { NoteProvider } from '../../providers/note/note';
 import firebase from 'firebase';
 
 @Component({
-  selector: 'detail',
-  templateUrl: 'detail.html'
+  selector: 'add',
+  templateUrl: 'add.html'
 })
 
-export class Detail {
-  id;
-  body;
+export class Add {
+
   constructor(public navCtrl: NavController ,public params : NavParams , private noteProvider : NoteProvider) {
-       this.body = params.data.note.body;
-       this.id = params.data.note.id;
+
   }
-  saveNote(body){
-    console.log(body);
+  addNote(val){
+    console.log('Added Note To DB');
   }
+
 }

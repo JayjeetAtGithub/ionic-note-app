@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import firebase from 'firebase';
 import { Page2 } from '../page2/page2';
+import { Add } from '../add/add';
 
 @Component({
   selector: 'page-home',
@@ -38,7 +39,6 @@ export class HomePage {
       // ...
     });
   }
-
 
 
 }

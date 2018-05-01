@@ -4,12 +4,14 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import firebase from 'firebase';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { Page2 } from '../pages/page2/page2';
 import { Detail } from '../pages/detail/detail';
 import { NoteProvider } from '../providers/note/note';
 import { HttpClientModule } from '@angular/common/http';
+import { Add } from '../pages/add/add';
 
   // Initialize Firebase
 export const config = {
@@ -29,17 +31,23 @@ export const config = {
     MyApp,
     HomePage,
     Page2,
+    Detail,
+    Add,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     Page2,
+    Detail,
+    Add,
   ],
   providers: [
     StatusBar,

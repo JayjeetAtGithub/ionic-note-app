@@ -9,16 +9,17 @@
   <ion-content padding>
     <h1>Hello {{ user.displayName }}</h1>
     <p>{{user.email}}</p>
-    <img src = {{ user.imageURL }}/>
     <button ion-button color = 'primary'  (click) = 'logout()' >Logout</button>
+    <button ion-button color = "secondary" (click) = 'addPage()'>New</button>
     <br>
     <hr>
     <br>
     <ion-list>
      Your Cool Notes :
-    <ion-item *ngFor = 'let note of notes'>
+    <ion-item *ngFor = 'let note of notes' (click) = 'open(note)'>
     <h3>{{ note.body }}</h3>
     <p>Created On : {{ note.date_created }}</p>
     </ion-item>
     </ion-list>
+
   </ion-content>

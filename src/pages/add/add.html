@@ -1,19 +1,16 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Edit Note</ion-title>
+    <ion-title>Add Note</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
 
-<form (ngSubmit) = 'saveNote(f.value)' #f = "ngForm">
+<form (ngSubmit) = 'addNote(f.value)' #f = "ngForm">
 <ion-item>
     <ion-label floating>Write here</ion-label>
     <ion-input type="text" [(ngModel)]="body" name='NoteBody'></ion-input>
 </ion-item>
 <button ion-button round color = 'secondary' type="submit" >Save</button>
 </form>
-<br>
-<br>
-<button ion-button outline color = 'danger'>Delete</button>
 </ion-content>
