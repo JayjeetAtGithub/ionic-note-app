@@ -9,12 +9,14 @@ import firebase from 'firebase';
 })
 
 export class Add {
-
+  user;
   constructor(public navCtrl: NavController ,public params : NavParams , private noteProvider : NoteProvider) {
-
+      this.user = params.data.user;
   }
-  addNote(val){
-    console.log('Added Note To DB');
+  saveNote(val){
+    console.log(val);
+    this.noteProvider.addNote({ body : val.NoteBody , uid : this.user.uid }).subscribe((res)=>{console.log(res)})
+    this.navCtrl.pop()
   }
 
 }

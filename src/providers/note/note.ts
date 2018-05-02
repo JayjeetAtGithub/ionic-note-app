@@ -17,5 +17,17 @@ export class NoteProvider {
    {
      return this.http.get(this.baseUrl + '/getnotes/' + id + '/')
    }
+   addUser(obj)
+   {
+     return this.http.post(this.baseUrl + '/adduser/' , obj)
+   }
+   addNote(obj)
+   {
+     return this.http.post(this.baseUrl + '/addnote/' , obj)
+   }
+   updateNote(id,obj)
+   {
+     return this.http.put(this.baseUrl + '/updatenote/' + id + '/' , obj)
+   }
 
 }

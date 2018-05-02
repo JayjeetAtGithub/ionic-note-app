@@ -27,27 +27,23 @@ export class Page2 {
   }
 
   open(note){
-    this.navCtrl.push(Detail,{ note : note });
+    this.navCtrl.push(Detail,{ note : note , user : this.user });
   }
 
   ngOnInit(){
-    //console.log('on init');
-    this.noteProvider.getNotes(1).subscribe((res) => {
-        this.notes = res;
-        console.log(this.notes);
-
-    })
+    console.log('ngOnInit() Ran')
   }
 
 
   ionViewDidEnter(){
-    //the code in ngOnInit has to be ported to here....
-    console.log('Now its time');
+    console.log('Page 2 Entered Into View');
+    this.noteProvider.getNotes(this.user.uid).subscribe((res) => {
+        this.notes = res;
+        console.log(this.notes);
+      })
   }
 
      addPage(){
-        this.navCtrl.push(Add);
+        this.navCtrl.push(Add,{ user : this.user });
      }
-
-
 }
