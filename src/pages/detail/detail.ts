@@ -22,4 +22,8 @@ export class Detail {
     this.noteProvider.updateNote(this.id,{ body : val.NoteBody , uid : this.user.uid  }).subscribe((res)=>{console.log(res)})
     this.navCtrl.pop()
   }
+  delete(){
+     this.noteProvider.deleteNote(this.id).subscribe((res)=>{console.log(res)})
+     this.navCtrl.pop()
+  }
 }

@@ -29,5 +29,9 @@ export class NoteProvider {
    {
      return this.http.put(this.baseUrl + '/updatenote/' + id + '/' , obj)
    }
+   deleteNote(id)
+   {
+     return this.http.delete(this.baseUrl + '/deletenote/' + id + '/')
+   }
 
 }
