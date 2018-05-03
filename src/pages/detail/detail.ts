@@ -19,11 +19,16 @@ export class Detail {
        this.user = params.data.user;
   }
   update(val){
-    this.noteProvider.updateNote(this.id,{ body : val.NoteBody , uid : this.user.uid  }).subscribe((res)=>{console.log(res)})
-    this.navCtrl.pop()
+    this.noteProvider.updateNote(this.id,{ body : val.NoteBody , uid : this.user.uid  }).subscribe((res)=>{
+      console.log(res)
+      this.navCtrl.pop()
+    })
+
   }
   delete(){
-     this.noteProvider.deleteNote(this.id).subscribe((res)=>{console.log(res)})
-     this.navCtrl.pop()
+     this.noteProvider.deleteNote(this.id).subscribe((res)=>{
+       console.log(res)
+       this.navCtrl.pop()
+     })
   }
 }

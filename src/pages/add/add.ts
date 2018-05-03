@@ -15,8 +15,11 @@ export class Add {
   }
   saveNote(val){
     console.log(val);
-    this.noteProvider.addNote({ body : val.NoteBody , uid : this.user.uid }).subscribe((res)=>{console.log(res)})
-    this.navCtrl.pop()
+    this.noteProvider.addNote({ body : val.NoteBody , uid : this.user.uid }).subscribe((res)=>{
+      console.log(res)
+      this.navCtrl.pop()
+    })
+
   }
 
 }
