@@ -9,6 +9,7 @@
   <ion-content padding>
     <h1>Hello {{ user.displayName }}</h1>
     <p>{{user.email}}</p>
+    <ion-img width="100" height="100" src="{{ user.photoURL }}"></ion-img>
     <button ion-button color = 'primary'  (click) = 'logout()' >Logout</button>
     <button ion-button color = "secondary" (click) = 'addPage()'>New</button>
     <br>
@@ -21,5 +22,4 @@
     <p>Created On : {{ note.date_created }}</p>
     </ion-item>
     </ion-list>
-
   </ion-content>

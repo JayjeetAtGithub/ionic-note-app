@@ -19,12 +19,41 @@ export class HomePage {
      console.log('App started through entry point : Home.ts');
    }
 
-  login(){
+  loginWithGoogle(){
+    let displayName,email,photoURL;
     firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((result) => {
       var token = result.credential.accessToken;
       var user = result.user;
       console.log(user);
-      this.auth_user = { uid : user.uid , displayName : user.displayName , photoURL : user.photoURL , email : user.email }
+
+      if(user.displayName!=null)
+      {
+          displayName = user.displayName;
+      }
+      else
+      {
+          displayName = 'Not Available';
+      }
+
+      if(user.email!=null)
+      {
+        email = user.email;
+      }
+      else
+      {
+        email = 'Not Available';
+      }
+
+      if(user.photoURL!=null)
+      {
+        photoURL = user.photoURL;
+      }
+      else
+      {
+        photoURL = 'Not Available';
+      }
+      //console.log(email)
+      this.auth_user = { uid : user.uid , displayName : displayName , photoURL : photoURL , email : email }
       this.noteProvider.addUser(this.auth_user).subscribe((res) => {console.log(res)});
       this.navCtrl.push(Page2,{ user : user });
     }).catch((error) => {
@@ -33,5 +62,50 @@ export class HomePage {
       var email = error.email;
       var credential = error.credential;
     });
+  }
+
+  loginWithFacebook(){
+    let displayName , email , photoURL;
+    firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider()).then((result) => {
+    var token = result.credential.accessToken;
+    var user = result.user;
+    console.log(user);
+
+    if(user.displayName!=null)
+    {
+        displayName = user.displayName;
+    }
+    else
+    {
+        displayName = 'Not Available';
+    }
+
+    if(user.email!=null)
+    {
+      email = user.email;
+    }
+    else
+    {
+      email = 'Not Available';
+    }
+
+    if(user.photoURL!=null)
+    {
+      photoURL = user.photoURL;
+    }
+    else
+    {
+      photoURL = 'Not Available';
+    }
+    //console.log(email)
+    this.auth_user = { uid : user.uid , displayName : displayName , photoURL : photoURL , email:email }
+    this.noteProvider.addUser(this.auth_user).subscribe((res) => {console.log(res)});
+    this.navCtrl.push(Page2,{ user : user });
+}).catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    var email = error.email;
+    var credential = error.credential;
+});
   }
 }
