@@ -1,4 +1,8 @@
 # ionic-note-app
+Dependencies used :
+
+1. firebase ---> $ npm install --save firebase
+
 
 --TASK--
 
